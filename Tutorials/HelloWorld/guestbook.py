@@ -72,6 +72,7 @@ class MainPage(webapp2.RequestHandler):
         self.response.write(template.render(template_values))
         
 
+
 class Guestbook(webapp2.RequestHandler):
 
     def post(self):
