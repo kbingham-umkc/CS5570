@@ -12,7 +12,8 @@ handlers:
   script: services.app
 - url: /bootstrap
   static_dir: bootstrap
-
+- url: /js
+  static_dir: js
 - url: .*
   script: main.app
 

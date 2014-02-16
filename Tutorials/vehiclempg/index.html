@@ -20,10 +20,120 @@
   <body>
     <h1>Your fuel economy</h1>
 
+	<table class="table table-striped table-bordered table-hover">
+		<thead>
+			<tr>
+				<th></th><th>Miles</th><th>Gallons</th><th>
+			</tr>
+		</thead>
+		<tbody data-bind="foreach: mpglist">
+			<tr>
+				<td> <button data-bind="click:$root.removempg">Del</button></td>
+				<td data-bind="text:miles"></td>
+				<td data-bind="text:gallons"></td>
+				<td></td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<th></th>
+				<th><input data-bind="value: addmiles" /></th>
+				<th><input data-bind="value: addgallons" /></th>
+				<th><button data-bind="click: addRecord" class="btn" >Add Record</button>
+			</tr>
+		</tfoot>
+	</table>
+	
+	
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="bootstrap/js/bootstrap.min.js"></script>
+	
+	<!-- Include Knockout -->
+    <script src="js/knockout-3.0.0.js"></script>
+	
+	<script type="text/javascript">
+		function FuelEconomyViewModel() {
+			var self = this;
+
+			self.mpglist = ko.observableArray(
+				[  
+				] 
+				);
+			
+			self.addmiles = ko.observable("");
+			self.addgallons = ko.observable("");
+			
+			self.LoadList = function() {
+
+				$.ajax({
+				  type: "POST",
+				  headers: { 
+					'Accept': 'application/json',
+					'Content-Type': 'application/json' 
+				  },
+				  url: "REST/mpg_service.get_mpglist",
+				  data: JSON.stringify({"limit":200}),
+				  success: function( msg) {
+					self.mpglist(msg.mpglist);
+				  },
+				  fail: function( source, status ) {
+					alert(status);
+				  },
+				  dataType: "json"
+				});			
+			}
+			
+			self.addRecord = function() {
+
+				$.ajax({
+				  type: "POST",
+				  headers: { 
+					'Accept': 'application/json',
+					'Content-Type': 'application/json' 
+				  },
+				  url: "REST/mpg_service.post_mpg",
+				  data: JSON.stringify({"miles":self.addmiles(), "gallons" : self.addgallons()}),
+				  success: function( msg) {
+					self.addmiles("");
+					self.addgallons("");
+					self.mpglist(msg.mpglist);
+				  },
+				  fail: function( source, status ) {
+					alert(status);
+				  },
+				  dataType: "json"
+				});	
+
+			}
+			
+			self.removempg = function(mpgrecord) {
+				$.ajax({
+				  type: "POST",
+				  headers: { 
+					'Accept': 'application/json',
+					'Content-Type': 'application/json' 
+				  },
+				  url: "REST/mpg_service.delete_mpg",
+				  data: JSON.stringify({"id":mpgrecord.id}),
+				  success: function( msg) {
+					self.mpglist(msg.mpglist);
+				  },
+				  fail: function( source, status ) {
+					alert(status);
+				  },
+				  dataType: "json"
+				});	
+			}
+			
+			self.LoadList();
+		}
+		
+		ko.applyBindings(new FuelEconomyViewModel());
+		
+	</script>
+	
   </body>
 </html>
 {% endautoescape %}
