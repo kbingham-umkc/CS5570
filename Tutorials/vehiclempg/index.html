@@ -20,10 +20,14 @@
   <body>
     <h1>Your fuel economy</h1>
 
+	<a href="{{ url|safe }}" > {{ url_linktext }} </a>
+	
+	<h3 ><label data-bind="text:totalmpg"></label> MPG</h3>
+	
 	<table class="table table-striped table-bordered table-hover">
 		<thead>
 			<tr>
-				<th></th><th>Miles</th><th>Gallons</th><th>
+				<th></th><th>Miles</th><th>Gallons</th><th>Created</th><th></th>
 			</tr>
 		</thead>
 		<tbody data-bind="foreach: mpglist">
@@ -31,6 +35,7 @@
 				<td> <button data-bind="click:$root.removempg">Del</button></td>
 				<td data-bind="text:miles"></td>
 				<td data-bind="text:gallons"></td>
+				<td data-bind="text:created"></td>
 				<td></td>
 			</tr>
 		</tbody>
@@ -40,6 +45,7 @@
 				<th><input data-bind="value: addmiles" /></th>
 				<th><input data-bind="value: addgallons" /></th>
 				<th><button data-bind="click: addRecord" class="btn" >Add Record</button>
+				<th></th>
 			</tr>
 		</tfoot>
 	</table>
@@ -64,6 +70,7 @@
 			
 			self.addmiles = ko.observable("");
 			self.addgallons = ko.observable("");
+			self.totalmpg = ko.observable("");
 			
 			self.LoadList = function() {
 
@@ -77,6 +84,7 @@
 				  data: JSON.stringify({"limit":200}),
 				  success: function( msg) {
 					self.mpglist(msg.mpglist);
+					self.totalmpg(msg.totalmpg);
 				  },
 				  fail: function( source, status ) {
 					alert(status);
@@ -99,7 +107,8 @@
 					self.addmiles("");
 					self.addgallons("");
 					self.mpglist(msg.mpglist);
-				  },
+					self.totalmpg(msg.totalmpg);
+    			  },
 				  fail: function( source, status ) {
 					alert(status);
 				  },
@@ -119,7 +128,8 @@
 				  data: JSON.stringify({"id":mpgrecord.id}),
 				  success: function( msg) {
 					self.mpglist(msg.mpglist);
-				  },
+					self.totalmpg(msg.totalmpg);
+					},
 				  fail: function( source, status ) {
 					alert(status);
 				  },
