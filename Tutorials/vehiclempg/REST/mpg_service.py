@@ -53,7 +53,7 @@ class PostService(remote.Service):
             mpgItem = fillup(miles = mpg.miles, gallons=mpg.gallons, id=mpg.key.urlsafe())
             mpglist.append(mpgItem)
         
-        mpglist.append(fillup(miles = request.miles, gallons = request.gallons))
+        mpglist.append(fillup(miles = request.miles, gallons = request.gallons, id=note.key.urlsafe()))
         
         return MPGList(mpglist=mpglist)
     
