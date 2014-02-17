@@ -50,7 +50,7 @@ def TotalMPG(mpglist):
     
     if gallons > 0:
         return miles / gallons
-    return 0
+    return 0.0
     
 class PostService(remote.Service):
 
