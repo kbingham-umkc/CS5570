@@ -6,7 +6,7 @@
         <option name="rootFolder" value="C:\Users\kbingham\Documents\PythonProjects\CS5570\Tutorials\HelloWorld" />
         <option name="sdkFolder" value="C:\Program Files (x86)\Google\google_appengine" />
         <option name="templatesFolder" value="" />
-        <option name="oauth2" value="false" />
+        <option name="oauth2" value="true" />
       </configuration>
     </facet>
   </component>

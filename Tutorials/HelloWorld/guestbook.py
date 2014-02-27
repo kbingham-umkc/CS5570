@@ -6,11 +6,13 @@ from google.appengine.ext import ndb
 
 import jinja2
 import webapp2
+import datetime
 
 
 JINJA_ENVIRONMENT = jinja2.Environment(
     loader = jinja2.FileSystemLoader(os.path.dirname(__file__)),
     extensions=['jinja2.ext.autoescape'], autoescape=True)
+
 
 MAIN_PAGE_FOOTER_TEMPLATE = """\
     <form action="/sign?%s" method="post">
@@ -33,7 +35,7 @@ MAIN_PAGE_FOOTER_TEMPLATE = """\
 DEFAULT_GUESTBOOK_NAME = 'default_guestbook'
 
 def guestbook_key(guestbook_name=DEFAULT_GUESTBOOK_NAME):
-    """Construct datstore key for Guestbook entity"""
+    """Construct datastore key for Guestbook entity"""
     return ndb.Key('Guestbook', guestbook_name)
 
 class Greeting(ndb.Model):
@@ -42,13 +44,14 @@ class Greeting(ndb.Model):
     content = ndb.StringProperty(indexed=False)
     date = ndb.DateTimeProperty(auto_now_add=True)
 
+class LoadTestEntity(ndb.Model):
+    key_value = ndb.IntegerProperty(indexed=True)
 
 class MainPage(webapp2.RequestHandler):
 
     def get(self):
 
         guestbook_name = self.request.get('guestbook_name', DEFAULT_GUESTBOOK_NAME)
-
 
         #I don't do comments
         greetings_query = Greeting.query(
@@ -90,8 +93,58 @@ class Guestbook(webapp2.RequestHandler):
         self.redirect("/?" + urllib.urlencode(query_params))
 
 
+class LoadTest(webapp2.RequestHandler):
+    def get(self):
+        template_values = dict()
+        template = JINJA_ENVIRONMENT.get_template('LoadTest.html')
+        self.response.write(template.render(template_values))
+
+    def post(self):
+        post_type = self.request.get("action").lower()
+        create_duration = 0
+        recordamount = 500
+        delete_duration = 0
+        deleteamount = 0
+        error_str = ''
+        if post_type == "createmultiplerecords":
+            try:
+                startTime = datetime.datetime.now()
+                for x in range(recordamount):
+                    newEntity = LoadTestEntity()
+                    newEntity.key_value = x
+                    newEntity.put()
+                finishtime = datetime.datetime.now()
+                create_duration = finishtime - startTime
+            except Exception, e:
+                error_str = repr(e)
+        elif post_type == "deleteall":
+            startTime = datetime.datetime.now()
+            try:
+                q = ndb.gql("SELECT __key__ FROM LoadTestEntity")
+                deleteamount = q.count()
+                while q.count() > 0:
+                    ndb.delete_multi(q.fetch(200))
+                    q = ndb.gql("SELECT __key__ FROM LoadTestEntity")
+            except Exception, e:
+                error_str = repr(e)
+            finishtime = datetime.datetime.now()
+            delete_duration = finishtime - startTime
+
+
+        template_values = {
+            'create_duration': "{} records in {} seconds".format(str(recordamount), str(create_duration)),
+            'error' : error_str,
+            'delete_duration': "{} records deleted in {} seconds".format(str(deleteamount), str(delete_duration))
+        }
+        template = JINJA_ENVIRONMENT.get_template('LoadTest.html')
+        self.response.write(template.render(template_values))
+
+
+
+
 application = webapp2.WSGIApplication(
     [
         ('/', MainPage),
         ('/sign', Guestbook),
+        ('/loadtest', LoadTest)
     ], debug=True)

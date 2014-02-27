@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Load Test APP Engine</title>
+</head>
+<body>
+
+		<form action="/loadtest" method="post">
+            <input type="hidden" name="action" value="createmultiplerecords" />
+			<div><input type="submit"  value="Run Load Test">{{ create_duration }}</div>
+		</form>
+
+		<form action="/loadtest" method="post">
+            <input type="hidden" name="action" value="deleteall" />
+			<div><input type="submit"  value="Delete all records from Load test entity">{{ delete_duration }}</div>
+		</form>
+
+
+
+        <div>
+            {{ error }}
+        </div>
+</body>
+</html>
