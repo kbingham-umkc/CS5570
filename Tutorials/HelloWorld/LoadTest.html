@@ -2,6 +2,9 @@
 <html>
 <head>
     <title>Load Test APP Engine</title>
+        <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
 <body>
 
@@ -16,9 +19,8 @@
 		</form>
 
 
+        <div class="alert alert-info">{{ action_message }}</div>
 
-        <div>
-            {{ error }}
-        </div>
+        <div class="alert alert-warning">{{ error }}</div>
 </body>
 </html>
