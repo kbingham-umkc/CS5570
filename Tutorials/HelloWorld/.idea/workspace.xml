@@ -32,11 +32,7 @@
         <entry file="file://$PROJECT_DIR$/guestbook.py">
           <provider selected="true" editor-type-id="text-editor">
             <state line="103" column="31" selection-start="2818" selection-end="2818" vertical-scroll-proportion="0.0" vertical-offset="1479" max-vertical-offset="2431">
-              <folding>
-                <element signature="e#25#34#0" expanded="true" />
-                <marker date="1393546375945" expanded="true" signature="3110:3144" placeholder="SELECT __key..." />
-                <marker date="1393546375945" expanded="true" signature="3308:3342" placeholder="SELECT __key..." />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -44,10 +40,8 @@
       <file leaf-file-name="TutorialDB.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TutorialDB.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="0" selection-start="666" selection-end="666" vertical-scroll-proportion="0.0" vertical-offset="39" max-vertical-offset="493">
-              <folding>
-                <element signature="n#!!doc" expanded="false" />
-              </folding>
+            <state line="26" column="0" selection-start="666" selection-end="666" vertical-scroll-proportion="0.0" vertical-offset="442" max-vertical-offset="544">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -55,7 +49,7 @@
       <file leaf-file-name="LoadTest.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/LoadTest.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="7" selection-start="763" selection-end="763" vertical-scroll-proportion="0.90555555" vertical-offset="99" max-vertical-offset="527">
+            <state line="25" column="7" selection-start="763" selection-end="763" vertical-scroll-proportion="0.75757575" vertical-offset="0" max-vertical-offset="561">
               <folding />
             </state>
           </provider>
@@ -116,9 +110,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="191" />
-    <option name="y" value="236" />
-    <option name="width" value="1308" />
+    <option name="x" value="30" />
+    <option name="y" value="59" />
+    <option name="width" value="1122" />
     <option name="height" value="722" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -163,6 +157,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -187,7 +182,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -479,19 +473,19 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="191" y="236" width="1308" height="722" extended-state="0" />
-    <editor active="true" />
+    <frame x="30" y="59" width="1122" height="722" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18034056" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14647378" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32789558" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32626426" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -523,12 +517,106 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/guestbook.py">
       <provider selected="true" editor-type-id="text-editor">
+        <state line="103" column="31" selection-start="2818" selection-end="2818" vertical-scroll-proportion="0.0" vertical-offset="1479" max-vertical-offset="2431">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TutorialDB.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="0" selection-start="666" selection-end="666" vertical-scroll-proportion="0.0" vertical-offset="442" max-vertical-offset="544">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LoadTest.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="7" selection-start="763" selection-end="763" vertical-scroll-proportion="0.0" vertical-offset="425" max-vertical-offset="527">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="23" selection-start="264" selection-end="264" vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="544">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="0" selection-start="132" selection-end="132" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="697">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files (x86)/Google/google_appengine/lib/webapp2-2.5.2/webapp2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="569" column="0" selection-start="19382" selection-end="19382" vertical-scroll-proportion="0.0" vertical-offset="9673" max-vertical-offset="33864">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="527">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/guestbook.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="103" column="31" selection-start="2818" selection-end="2818" vertical-scroll-proportion="0.0" vertical-offset="1479" max-vertical-offset="2431">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TutorialDB.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="0" selection-start="666" selection-end="666" vertical-scroll-proportion="0.0" vertical-offset="442" max-vertical-offset="544">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LoadTest.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="7" selection-start="763" selection-end="763" vertical-scroll-proportion="0.0" vertical-offset="99" max-vertical-offset="527">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="23" selection-start="264" selection-end="264" vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="544">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="0" selection-start="132" selection-end="132" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="697">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files (x86)/Google/google_appengine/lib/webapp2-2.5.2/webapp2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="569" column="0" selection-start="19382" selection-end="19382" vertical-scroll-proportion="0.0" vertical-offset="9673" max-vertical-offset="33864">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="527">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/guestbook.py">
+      <provider selected="true" editor-type-id="text-editor">
         <state line="95" column="11" selection-start="2689" selection-end="2689" vertical-scroll-proportion="0.0" vertical-offset="1449" max-vertical-offset="2652">
-          <folding>
-            <element signature="e#25#34#0" expanded="true" />
-            <marker date="1393546375945" expanded="true" signature="3110:3144" placeholder="SELECT __key..." />
-            <marker date="1393546375945" expanded="true" signature="3308:3342" placeholder="SELECT __key..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -570,11 +658,7 @@
     <entry file="file://$PROJECT_DIR$/guestbook.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="120" column="31" selection-start="3648" selection-end="3648" vertical-scroll-proportion="0.0" vertical-offset="1959" max-vertical-offset="2652">
-          <folding>
-            <element signature="e#25#34#0" expanded="true" />
-            <marker date="1393546375945" expanded="true" signature="3110:3144" placeholder="SELECT __key..." />
-            <marker date="1393546375945" expanded="true" signature="3308:3342" placeholder="SELECT __key..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -616,11 +700,7 @@
     <entry file="file://$PROJECT_DIR$/guestbook.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="103" column="5" selection-start="2954" selection-end="2954" vertical-scroll-proportion="0.0" vertical-offset="1530" max-vertical-offset="2108">
-          <folding>
-            <element signature="e#25#34#0" expanded="true" />
-            <marker date="1393546375945" expanded="true" signature="3110:3144" placeholder="SELECT __key..." />
-            <marker date="1393546375945" expanded="true" signature="3308:3342" placeholder="SELECT __key..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -662,11 +742,7 @@
     <entry file="file://$PROJECT_DIR$/guestbook.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="89" column="0" selection-start="2516" selection-end="2516" vertical-scroll-proportion="0.0" vertical-offset="1348" max-vertical-offset="1751">
-          <folding>
-            <element signature="e#25#34#0" expanded="true" />
-            <marker date="1393546375945" expanded="true" signature="3110:3144" placeholder="SELECT __key..." />
-            <marker date="1393546375945" expanded="true" signature="3308:3342" placeholder="SELECT __key..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -680,22 +756,14 @@
     <entry file="file://$PROJECT_DIR$/guestbook.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="50" column="0" selection-start="1274" selection-end="1274" vertical-scroll-proportion="0.0" vertical-offset="501" max-vertical-offset="1751">
-          <folding>
-            <element signature="e#25#34#0" expanded="true" />
-            <marker date="1393546375945" expanded="true" signature="3110:3144" placeholder="SELECT __key..." />
-            <marker date="1393546375945" expanded="true" signature="3308:3342" placeholder="SELECT __key..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/guestbook.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="50" column="0" selection-start="1274" selection-end="1274" vertical-scroll-proportion="0.0" vertical-offset="382" max-vertical-offset="1751">
-          <folding>
-            <element signature="e#25#34#0" expanded="true" />
-            <marker date="1393546375945" expanded="true" signature="3110:3144" placeholder="SELECT __key..." />
-            <marker date="1393546375945" expanded="true" signature="3308:3342" placeholder="SELECT __key..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -745,26 +813,20 @@
     <entry file="file://$PROJECT_DIR$/TutorialDB.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="26" column="0" selection-start="666" selection-end="666" vertical-scroll-proportion="0.0" vertical-offset="39" max-vertical-offset="493">
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/guestbook.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="103" column="31" selection-start="2818" selection-end="2818" vertical-scroll-proportion="0.0" vertical-offset="1479" max-vertical-offset="2431">
-          <folding>
-            <element signature="e#25#34#0" expanded="true" />
-            <marker date="1393546375945" expanded="true" signature="3110:3144" placeholder="SELECT __key..." />
-            <marker date="1393546375945" expanded="true" signature="3308:3342" placeholder="SELECT __key..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/LoadTest.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="7" selection-start="763" selection-end="763" vertical-scroll-proportion="0.90555555" vertical-offset="99" max-vertical-offset="527">
+        <state line="25" column="7" selection-start="763" selection-end="763" vertical-scroll-proportion="0.75757575" vertical-offset="0" max-vertical-offset="561">
           <folding />
         </state>
       </provider>
