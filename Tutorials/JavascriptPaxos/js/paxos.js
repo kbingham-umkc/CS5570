@@ -107,6 +107,40 @@ function ProposerServer(name, serverId) {
             self.AcceptServers[index].messageQueue.push(prepMsg);
         }
     }
+
+    self.RemoveMsg = function (msg) {
+        self.messageQueue.remove(msg);
+    }
+
+    self.MoveUp = function (msg) {
+        var index = self.messageQueue.indexOf(msg)
+        var newPos = index - 1;
+
+        if (index === -1)
+            throw new Error("Element not found in array");
+
+        if (newPos < 0)
+            newPos = 0;
+
+        self.messageQueue.splice(index, 1);
+        self.messageQueue.splice(newPos, 0, msg);
+    }
+
+    self.MoveDown = function (msg) {
+        var index = self.messageQueue.indexOf(msg)
+        var newPos = index + 1;
+
+        if (index === -1)
+            throw new Error("Element not found in array");
+
+        if (newPos >= this.length)
+            newPos = this.length;
+
+        self.messageQueue.splice(index, 1);
+        self.messageQueue.splice(newPos, 0, msg);
+    }
+
+
 }
 
 function AcceptorServer(name, ttRow) {
@@ -182,6 +216,39 @@ function AcceptorServer(name, ttRow) {
         msg.From.messageQueue.push(acceptResponse);
 
     }
+
+    self.RemoveMsg = function (msg) {
+        self.messageQueue.remove(msg);
+    }
+
+    self.MoveUp = function (msg) {
+        var index = self.messageQueue.indexOf(msg)     
+        var newPos = index - 1;
+    
+        if(index === -1) 
+            throw new Error("Element not found in array");
+    
+        if(newPos < 0) 
+            newPos = 0;
+        
+        self.messageQueue.splice(index, 1);
+        self.messageQueue.splice(newPos, 0, msg);
+    }
+
+    self.MoveDown = function (msg) {
+        var index = self.messageQueue.indexOf(msg)
+        var newPos = index + 1;
+
+        if (index === -1)
+            throw new Error("Element not found in array");
+
+        if (newPos >= this.length)
+            newPos = this.length;
+
+        self.messageQueue.splice(index, 1);
+        self.messageQueue.splice(newPos, 0, msg);
+    }
+    //glyphicon glyphicon-arrow-up
 
 }
 

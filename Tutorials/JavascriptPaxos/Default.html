@@ -49,9 +49,14 @@
 
                     <tr>
                         <td colspan="2">
-                            <table data-bind="foreach: messageQueue">
+                            <table data-bind="foreach: messageQueue" class="table table-hover table-bordered">
                                 <tr>
-                                    <td colspan="4" data-bind="text: OutputInfo"></td>
+                                    <td data-bind="text: OutputInfo"></td>
+                                    <td><button data-bind="click: $parent.RemoveMsg.bind($parent)" >Delete</button></td>
+                                    <td>
+                                        <button class="glyphicon glyphicon-arrow-up" data-bind="click: $parent.MoveUp.bind($parent)"></button>
+                                        <button class="glyphicon glyphicon-arrow-down" data-bind="click: $parent.MoveDown.bind($parent)"></button>
+                                     </td>
                                 </tr>
                             </table>
                         </td>
@@ -91,9 +96,14 @@
                     </tr>
                     <tr class="form-group">
                         <td>
-                            <table data-bind="foreach: messageQueue">
+                            <table data-bind="foreach: messageQueue" class="table table-hover table-bordered">
                                 <tr>
-                                    <td colspan="4" data-bind="text: OutputInfo"></td>
+                                    <td data-bind="text: OutputInfo"></td>
+                                    <td><button data-bind="click: $parent.RemoveMsg.bind($parent)" >Delete</button></td>
+                                    <td>
+                                        <span class="glyphicon glyphicon-arrow-up" data-bind="click: $parent.MoveUp.bind($parent)"></span>
+                                        <span class="glyphicon glyphicon-arrow-down" data-bind="click: $parent.MoveDown.bind($parent)"></span>
+                                    </td>
                                 </tr>
                             </table>
                         </td>
