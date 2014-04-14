@@ -8,6 +8,7 @@
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/paxos.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -17,127 +18,138 @@
     <![endif]-->
 </head>
 <body>
-    <div class="container">
-        <h1>Paxos Trial</h1>
-        <div data-bind="foreach: Proposers" class="row" role="form">
-            <div class="col-md-4">
-                <table class="table">
-                    <tr>
-                        <td data-bind="text: name"></td>
-                        <td data-bind="text: serverId"></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input data-bind="value: submittedValue" /></td>
-                        <td>
-                            <button data-bind="click: submitValue">Submit</button></td>
-                    </tr>
-                    <tr>
-                        <td class="col-sm-3">Max Round :</td>
-                        <td class="col-sm-3" data-bind="text: maxRound"></td>
-                    </tr>
-                    <tr>
-                        <td class="col-sm-3">Msgs :</td>
-                        <td class="col-sm-3" data-bind="text: messageCount"></td>
-                    </tr>
-                    <tr>
-                        <td class="col-sm-3">
-                            <button data-bind="click: ReadMsg">Read Msg</button></td>
-                        <td class="col-sm-3">
-                            <button data-bind="click: ClearMsg">Clear Msgs</button></td>
-                    </tr>
+    <div id="wrap">
+        <div id="main" class="">
+            <div >
+                <div >
 
-                    <tr>
-                        <td colspan="2">
-                            <table data-bind="foreach: messageQueue" class="table table-hover table-bordered">
+                    <h1>Paxos Trial</h1>
+                    <div data-bind="foreach: Proposers" class="row" role="form">
+                        <div class="col-md-4">
+                            <table class="table">
                                 <tr>
-                                    <td data-bind="text: OutputInfo"></td>
-                                    <td><button data-bind="click: $parent.RemoveMsg.bind($parent)" >Delete</button></td>
-                                    <td>
-                                        <button class="glyphicon glyphicon-arrow-up" data-bind="click: $parent.MoveUp.bind($parent)"></button>
-                                        <button class="glyphicon glyphicon-arrow-down" data-bind="click: $parent.MoveDown.bind($parent)"></button>
-                                     </td>
+                                    <td data-bind="text: name"></td>
+                                    <td data-bind="text: serverId"></td>
                                 </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-        <div data-bind="foreach: Acceptors" class="row">
-            <div class="col-md-4">
-                <table class="table">
-                    <tr>
-                        <td class="col-sm-4" data-bind="text: name"></td>
-                    </tr>
-                    <tr>
-                        <td class="col-sm-4">Min Proposal :</td>
-                        <td class="col-sm-4" data-bind="text: minProposal"></td>
-                    </tr>
-                    <tr>
-                        <td class="col-sm-2">Acc Value :</td>
-                        <td class="col-sm-2" data-bind="text: acceptedValue"></td>
-                    </tr>
-                    <tr>
-                        <td class="col-sm-2">Acc Proposal :</td>
-                        <td class="col-sm-2" data-bind="text: acceptedProposal"></td>
-                    </tr>
-                    <tr class="form-group">
-                        <td class="col-sm-2">Msgs :</td>
-                        <td class="col-sm-2" data-bind="text: messageCount"></td>
-                    </tr>
-                    <tr>
-                        <td class="col-sm-2">
-                            <button data-bind="click: ReadMsg">Read Msg</button>
-                        </td>
-                        <td class="col-sm-2">
-                            <button data-bind="click: ClearMsg">Clear Msgs</button>
-                        </td>
-                    </tr>
-                    <tr class="form-group">
-                        <td>
-                            <table data-bind="foreach: messageQueue" class="table table-hover table-bordered">
                                 <tr>
-                                    <td data-bind="text: OutputInfo"></td>
-                                    <td><button data-bind="click: $parent.RemoveMsg.bind($parent)" >Delete</button></td>
                                     <td>
-                                        <span class="glyphicon glyphicon-arrow-up" data-bind="click: $parent.MoveUp.bind($parent)"></span>
-                                        <span class="glyphicon glyphicon-arrow-down" data-bind="click: $parent.MoveDown.bind($parent)"></span>
+                                        <input data-bind="value: submittedValue" /></td>
+                                    <td>
+                                        <button data-bind="click: submitValue">Submit</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="col-sm-3">Max Round :</td>
+                                    <td class="col-sm-3" data-bind="text: maxRound"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col-sm-3">Msgs :</td>
+                                    <td class="col-sm-3" data-bind="text: messageCount"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col-sm-3">
+                                        <button data-bind="click: ReadMsg">Read Msg</button></td>
+                                    <td class="col-sm-3">
+                                        <button data-bind="click: ClearMsg">Clear Msgs</button></td>
+                                </tr>
+
+                                <tr>
+                                    <td colspan="2">
+                                        <table data-bind="foreach: messageQueue" class="table table-hover table-bordered">
+                                            <tr>
+                                                <td data-bind="text: OutputInfo"></td>
+                                                <td>
+                                                    <button data-bind="click: $parent.RemoveMsg.bind($parent)">Delete</button></td>
+                                                <td>
+                                                    <button class="glyphicon glyphicon-arrow-up" data-bind="click: $parent.MoveUp.bind($parent)"></button>
+                                                    <button class="glyphicon glyphicon-arrow-down" data-bind="click: $parent.MoveDown.bind($parent)"></button>
+                                                </td>
+                                            </tr>
+                                        </table>
                                     </td>
                                 </tr>
                             </table>
+                        </div>
+                    </div>
+                    <div data-bind="foreach: Acceptors" class="row">
+                        <div class="col-md-4">
+                            <table class="table">
+                                <tr>
+                                    <td class="col-sm-4" data-bind="text: name"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col-sm-4">Min Proposal :</td>
+                                    <td class="col-sm-4" data-bind="text: minProposal"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col-sm-2">Acc Value :</td>
+                                    <td class="col-sm-2" data-bind="text: acceptedValue"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col-sm-2">Acc Proposal :</td>
+                                    <td class="col-sm-2" data-bind="text: acceptedProposal"></td>
+                                </tr>
+                                <tr class="form-group">
+                                    <td class="col-sm-2">Msgs :</td>
+                                    <td class="col-sm-2" data-bind="text: messageCount"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col-sm-2">
+                                        <button data-bind="click: ReadMsg">Read Msg</button>
+                                    </td>
+                                    <td class="col-sm-2">
+                                        <button data-bind="click: ClearMsg">Clear Msgs</button>
+                                    </td>
+                                </tr>
+                                <tr class="form-group">
+                                    <td>
+                                        <table data-bind="foreach: messageQueue" class="table table-hover table-bordered">
+                                            <tr>
+                                                <td data-bind="text: OutputInfo"></td>
+                                                <td>
+                                                    <button data-bind="click: $parent.RemoveMsg.bind($parent)">Delete</button></td>
+                                                <td>
+                                                    <span class="glyphicon glyphicon-arrow-up" data-bind="click: $parent.MoveUp.bind($parent)"></span>
+                                                    <span class="glyphicon glyphicon-arrow-down" data-bind="click: $parent.MoveDown.bind($parent)"></span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-fixed-bottom" role="navigation">
+        <div class="container">
+            <table data-bind="foreach: TimeTable">
+                <tbody>
+                    <tr data-bind="foreach: Columns">
+                        <td style="width: 50px;">
+                            <span class="label label-success" data-bind="text: $data"></span>
                         </td>
                     </tr>
-
-                </table>
-            </div>
+                </tbody>
+            </table>
         </div>
-        <div >
-            <div style="overflow:scroll">
-                <table data-bind="foreach: TimeTable" >
-                    <tbody>
-                        <tr data-bind="foreach: Columns">
-                            <td style="width: 50px;">
-                                <span class="label label-success" data-bind="text: $data"></span>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+    </nav>
 
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-        <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/knockout-3.1.0.js"></script>
-        <script src="js/paxos.js"></script>
-
-        <script type="text/javascript">
-            ko.applyBindings(new PaxosViewModel());
-        </script>
-    </div>
 
 
 </body>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/knockout-3.1.0.js"></script>
+    <script src="js/paxos.js"></script>
+
+    <script type="text/javascript">
+        ko.applyBindings(new PaxosViewModel());
+    </script>
+
+
 </html>
