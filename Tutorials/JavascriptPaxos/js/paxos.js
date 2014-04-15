@@ -10,6 +10,16 @@ if (!String.prototype.format) {
         });
     };
 }
+Array.prototype.remove = function () {
+    var what, a = arguments, L = a.length, ax;
+    while (L && this.length) {
+        what = a[--L];
+        while ((ax = this.indexOf(what)) !== -1) {
+            this.splice(ax, 1);
+        }
+    }
+    return this;
+};
 
 function ProposerServer(name, serverId) {
     var self = this;
@@ -66,7 +76,18 @@ function ProposerServer(name, serverId) {
     }
 
     self.OnPrepareResponse = function (msg) {
+
         self.PrepareResponses.push(msg);
+
+        //Remove any noncurrent responses
+        var currentP = self.BuildProposalNumber();
+        var oldmessages = self.PrepareResponses.filter(function (obj) {
+            return obj.CurrentProposal != currentP;
+        });
+
+        for (var i = 0; i < oldmessages.length; i++) {
+            self.PrepareResponses.remove(oldmessages[i]);
+        }
 
         if (self.PrepareResponses.length >= Math.floor(self.AcceptServers.length / 2) + 1) {
 
@@ -95,9 +116,13 @@ function ProposerServer(name, serverId) {
 
     }
 
+    self.BuildProposalNumber = function () {
+        return self.maxRound() * 10 + self.serverId();
+    }
+
     self.submitValue = function () {
         self.maxRound(self.maxRound() + 1);
-        self.proposalNumber(self.maxRound() * 10 + self.serverId());
+        self.proposalNumber(self.BuildProposalNumber());
         self.proposedValue(self.submittedValue());
         self.submittedValue("");
 
@@ -178,7 +203,7 @@ function AcceptorServer(name, ttRow) {
         if (msg.ProposalNumber > self.minProposal()) {
             self.minProposal(msg.ProposalNumber);
             
-            reply = new PrepareResponse(self.acceptedValue(), self.acceptedProposal(), self);
+            reply = new PrepareResponse(self.acceptedValue(), self.acceptedProposal(), self, msg.ProposalNumber);
             msg.From.messageQueue.push(reply);
 
             for (var row = 0; row < self.TimeTable().length; row++) {
@@ -248,7 +273,6 @@ function AcceptorServer(name, ttRow) {
         self.messageQueue.splice(index, 1);
         self.messageQueue.splice(newPos, 0, msg);
     }
-    //glyphicon glyphicon-arrow-up
 
 }
 
@@ -288,11 +312,12 @@ function PrepareMsg(ProposalNumber, Server) {
 
 }
 
-function PrepareResponse(acceptedValue, acceptedProposal, fromServer) {
+function PrepareResponse(acceptedValue, acceptedProposal, fromServer, CurrentProposal) {
     var self = this;
     self.acceptedValue = acceptedValue;
     self.acceptedProposal = acceptedProposal;
     self.From = fromServer;
+    self.CurrentProposal = CurrentProposal;
 
     self.OutputInfo = ko.computed(function () {
         return "Prepare Response {0} {1}".format(self.acceptedProposal, self.acceptedValue);
@@ -319,6 +344,12 @@ function PaxosViewModel() {
     for (var index = 0; index < self.Acceptors().length; index++) {
         self.TimeTable.push( new column() );
     }
+
+    for (var index = 0; index < self.Acceptors().length; index++) {
+        self.TimeTable()[index].Columns.push("A {0}".format(self.Acceptors()[index].row));
+    }
+
+
     for (var index = 0; index < self.Acceptors().length; index++) {
         self.Acceptors()[index].TimeTable = self.TimeTable;
     }
