@@ -21,7 +21,7 @@
         <h1>Paxos Trial</h1>
         <div data-bind="foreach: Proposers" class="row" role="form">
             <div class="col-md-4">
-                <table class="table">
+                <table class="table table-condensed">
                     <tr>
                         <td data-bind="text: name"></td>
                         <td data-bind="text: serverId"></td>
@@ -49,7 +49,7 @@
 
                     <tr>
                         <td colspan="2">
-                            <table data-bind="foreach: messageQueue" class="table table-hover table-bordered">
+                            <table data-bind="foreach: messageQueue" class="table table-hover table-bordered table-condensed">
                                 <tr>
                                     <td data-bind="text: OutputInfo"></td>
                                     <td>
@@ -67,7 +67,7 @@
         </div>
         <div data-bind="foreach: Acceptors" class="row">
             <div class="col-md-4">
-                <table class="table">
+                <table class="table table-condensed">
                     <tr>
                         <td class="col-sm-4" data-bind="text: name"></td>
                     </tr>
@@ -97,7 +97,7 @@
                     </tr>
                     <tr class="form-group">
                         <td>
-                            <table data-bind="foreach: messageQueue" class="table table-hover table-bordered">
+                            <table data-bind="foreach: messageQueue" class="table table-hover table-bordered table-condensed">
                                 <tr>
                                     <td data-bind="text: OutputInfo"></td>
                                     <td>

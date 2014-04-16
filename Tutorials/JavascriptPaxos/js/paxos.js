@@ -21,6 +21,33 @@ Array.prototype.remove = function () {
     return this;
 };
 
+moveup = function (arrObj, msg) {
+    var index = arrObj.indexOf(msg)
+    var moveTo = index - 1;
+
+    if (index > -1) {
+        if (moveTo < 0)
+            moveTo = 0;
+
+        arrObj.splice(index, 1);
+        arrObj.splice(moveTo, 0, msg);
+    }
+}
+
+movedown = function (arrObj, msg) {
+    var index = arrObj.indexOf(msg)
+    var moveTo = index + 1;
+
+    if (index > -1) {
+        if (moveTo >= arrObj().length)
+            moveTo = arrObj().length - 1;
+
+        arrObj.splice(index, 1);
+        arrObj.splice(moveTo, 0, msg);
+    }
+
+}
+
 function ProposerServer(name, serverId) {
     var self = this;
     self.name = ko.observable(name);
@@ -138,31 +165,11 @@ function ProposerServer(name, serverId) {
     }
 
     self.MoveUp = function (msg) {
-        var index = self.messageQueue.indexOf(msg)
-        var newPos = index - 1;
-
-        if (index === -1)
-            throw new Error("Element not found in array");
-
-        if (newPos < 0)
-            newPos = 0;
-
-        self.messageQueue.splice(index, 1);
-        self.messageQueue.splice(newPos, 0, msg);
+        moveup(self.messageQueue, msg);
     }
 
     self.MoveDown = function (msg) {
-        var index = self.messageQueue.indexOf(msg)
-        var newPos = index + 1;
-
-        if (index === -1)
-            throw new Error("Element not found in array");
-
-        if (newPos >= this.length)
-            newPos = this.length;
-
-        self.messageQueue.splice(index, 1);
-        self.messageQueue.splice(newPos, 0, msg);
+        movedown(self.messageQueue, msg);
     }
 
 
@@ -247,31 +254,11 @@ function AcceptorServer(name, ttRow) {
     }
 
     self.MoveUp = function (msg) {
-        var index = self.messageQueue.indexOf(msg)     
-        var newPos = index - 1;
-    
-        if(index === -1) 
-            throw new Error("Element not found in array");
-    
-        if(newPos < 0) 
-            newPos = 0;
-        
-        self.messageQueue.splice(index, 1);
-        self.messageQueue.splice(newPos, 0, msg);
+        moveup(self.messageQueue, msg);
     }
 
     self.MoveDown = function (msg) {
-        var index = self.messageQueue.indexOf(msg)
-        var newPos = index + 1;
-
-        if (index === -1)
-            throw new Error("Element not found in array");
-
-        if (newPos >= this.length)
-            newPos = this.length;
-
-        self.messageQueue.splice(index, 1);
-        self.messageQueue.splice(newPos, 0, msg);
+        movedown(self.messageQueue, msg);
     }
 
 }
@@ -283,7 +270,7 @@ function AcceptResponse(minProposal, acceptedValue, Server) {
     self.From = Server;
 
     self.OutputInfo = ko.computed(function () {
-        return "Accept Response {0} {1}".format(self.MinProposal, self.AcceptedValue);
+        return "AR({0},{1})".format(self.MinProposal, self.AcceptedValue);
     });
 
 }
@@ -295,7 +282,7 @@ function AcceptMsg(ProposalNumber, ProposedValue, Server) {
     self.From = Server;
 
     self.OutputInfo = ko.computed(function () {
-        return "Accept {0} {1}".format(self.ProposalNumber, self.ProposedValue);
+        return "Acc({0},{1})".format(self.ProposalNumber, self.ProposedValue);
     });
 
 
@@ -307,7 +294,7 @@ function PrepareMsg(ProposalNumber, Server) {
     self.From = Server;
 
     self.OutputInfo = ko.computed(function () {
-        return "Prepare {0}".format(self.ProposalNumber);
+        return "Prep({0})".format(self.ProposalNumber);
     });
 
 }
@@ -320,7 +307,7 @@ function PrepareResponse(acceptedValue, acceptedProposal, fromServer, CurrentPro
     self.CurrentProposal = CurrentProposal;
 
     self.OutputInfo = ko.computed(function () {
-        return "Prepare Response {0} {1}".format(self.acceptedProposal, self.acceptedValue);
+        return "PR({0},{1})".format(self.acceptedProposal, self.acceptedValue);
     });
 
 }
