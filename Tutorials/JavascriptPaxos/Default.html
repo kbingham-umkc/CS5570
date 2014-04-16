@@ -49,17 +49,19 @@
 
                     <tr>
                         <td colspan="2">
-                            <table data-bind="foreach: messageQueue" class="table table-hover table-bordered table-condensed">
-                                <tr>
-                                    <td data-bind="text: OutputInfo"></td>
-                                    <td>
-                                        <button data-bind="click: $parent.RemoveMsg.bind($parent)">Delete</button></td>
-                                    <td>
-                                        <button class="glyphicon glyphicon-arrow-up" data-bind="click: $parent.MoveUp.bind($parent)"></button>
-                                        <button class="glyphicon glyphicon-arrow-down" data-bind="click: $parent.MoveDown.bind($parent)"></button>
-                                    </td>
-                                </tr>
-                            </table>
+                            <div style="height: 95px; overflow: auto;">
+                                <table data-bind="foreach: messageQueue" style="height: 100%;" class="table table-hover table-bordered table-condensed">
+                                    <tr>
+                                        <td data-bind="text: OutputInfo"></td>
+                                        <td>
+                                            <button data-bind="click: $parent.RemoveMsg.bind($parent)">Delete</button></td>
+                                        <td>
+                                            <button class="glyphicon glyphicon-arrow-up" data-bind="click: $parent.MoveUp.bind($parent)"></button>
+                                            <button class="glyphicon glyphicon-arrow-down" data-bind="click: $parent.MoveDown.bind($parent)"></button>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
                         </td>
                     </tr>
                 </table>
@@ -96,18 +98,20 @@
                         </td>
                     </tr>
                     <tr class="form-group">
-                        <td>
-                            <table data-bind="foreach: messageQueue" class="table table-hover table-bordered table-condensed">
-                                <tr>
-                                    <td data-bind="text: OutputInfo"></td>
-                                    <td>
-                                        <button data-bind="click: $parent.RemoveMsg.bind($parent)">Delete</button></td>
-                                    <td>
-                                        <span class="glyphicon glyphicon-arrow-up" data-bind="click: $parent.MoveUp.bind($parent)"></span>
-                                        <span class="glyphicon glyphicon-arrow-down" data-bind="click: $parent.MoveDown.bind($parent)"></span>
-                                    </td>
-                                </tr>
-                            </table>
+                        <td colspan="3">
+                            <div style="height: 95px; overflow: auto;">
+                                <table data-bind="foreach: messageQueue" style="height: 100%;" class="table table-hover table-bordered table-condensed">
+                                    <tr>
+                                        <td data-bind="text: OutputInfo"></td>
+                                        <td>
+                                            <button data-bind="click: $parent.RemoveMsg.bind($parent)">Delete</button></td>
+                                        <td>
+                                            <span class="glyphicon glyphicon-arrow-up" data-bind="click: $parent.MoveUp.bind($parent)"></span>
+                                            <span class="glyphicon glyphicon-arrow-down" data-bind="click: $parent.MoveDown.bind($parent)"></span>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
                         </td>
                     </tr>
 
@@ -115,8 +119,8 @@
             </div>
         </div>
     </div>
-    <nav class="navbar navbar-header navbar-fixed-bottom" role="navigation" style="height:70px">
-        <div class="container" style="background-color:grey;height:70px;width:100%;">
+    <nav class="navbar navbar-header navbar-fixed-bottom" role="navigation" style="height: 70px">
+        <div class="container" style="background-color: grey; height: 70px; width: 100%;">
             <table data-bind="foreach: TimeTable">
                 <tbody>
                     <tr data-bind="foreach: Columns">
